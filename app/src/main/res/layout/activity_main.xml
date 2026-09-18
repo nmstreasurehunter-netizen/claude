@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/stroke_soft" />
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_navbar"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:id="@+id/navProjects"
+            style="@style/NavItem">
+            <ImageView
+                android:id="@+id/navProjectsIcon"
+                style="@style/NavIcon"
+                android:src="@drawable/ic_folder" />
+            <TextView
+                android:id="@+id/navProjectsLabel"
+                style="@style/NavLabel"
+                android:text="@string/tab_projects" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navCreate"
+            style="@style/NavItem">
+            <ImageView
+                android:id="@+id/navCreateIcon"
+                style="@style/NavIcon"
+                android:src="@drawable/ic_plus_box" />
+            <TextView
+                android:id="@+id/navCreateLabel"
+                style="@style/NavLabel"
+                android:text="@string/tab_create" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navSettings"
+            style="@style/NavItem">
+            <ImageView
+                android:id="@+id/navSettingsIcon"
+                style="@style/NavIcon"
+                android:src="@drawable/ic_settings" />
+            <TextView
+                android:id="@+id/navSettingsLabel"
+                style="@style/NavLabel"
+                android:text="@string/tab_settings" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

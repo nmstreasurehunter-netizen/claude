@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/part_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="18dp">
+
+            <TextView style="@style/T.Title" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                android:text="@string/s4_title" />
+
+            <TextView android:id="@+id/subTitle" style="@style/T.Sub"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:layout_marginBottom="14dp" />
+
+            <include android:id="@+id/steps" layout="@layout/part_steps" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/doc_preview"
+                        android:textColor="@color/txt"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_ok"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp" android:paddingRight="12dp"
+                        android:paddingTop="6dp" android:paddingBottom="6dp">
+
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                            android:layout_marginEnd="6dp" android:src="@drawable/ic_check" />
+
+                        <TextView android:id="@+id/scaleBadge" style="@style/T.Label"
+                            android:textColor="@color/ok" android:text="@string/scale_ok" />
+                    </LinearLayout>
+
+                    <ImageView android:id="@+id/btnFull" android:layout_width="38dp"
+                        android:layout_height="38dp" android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_zoom" android:padding="8dp"
+                        android:src="@drawable/ic_expand" />
+                </LinearLayout>
+
+                <com.tracecroquis.ui.view.PlanView
+                    android:id="@+id/planView"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_preview" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                        android:layout_marginEnd="8dp" android:src="@drawable/ic_doc" />
+
+                    <TextView android:id="@+id/fileName" style="@style/T.Body" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/out_format"
+                    android:textColor="@color/txt"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:id="@+id/fmtPdf" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_doc" />
+                        <TextView style="@style/TileLabel" android:text="PDF" />
+                        <TextView style="@style/T.Label" android:text="@string/fmt_pdf_sub" />
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/fmtDxf" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_vector" />
+                        <TextView style="@style/TileLabel" android:text="DXF" />
+                        <TextView style="@style/T.Label" android:text="@string/fmt_dxf_sub" />
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/fmtSvg" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_titleblock" />
+                        <TextView style="@style/TileLabel" android:text="SVG" />
+                        <TextView style="@style/T.Label" android:text="@string/fmt_svg_sub" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout"
+                    android:textColor="@color/txt"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_field"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="12dp">
+
+                        <TextView style="@style/T.Label" android:text="@string/paper" />
+
+                        <Spinner android:id="@+id/spPaper" android:layout_width="0dp"
+                            android:layout_weight="1" android:layout_height="52dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_field"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="12dp">
+
+                        <TextView style="@style/T.Label" android:text="@string/orientation" />
+
+                        <Spinner android:id="@+id/spOrient" android:layout_width="0dp"
+                            android:layout_weight="1" android:layout_height="52dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_field"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="12dp">
+
+                        <TextView style="@style/T.Label" android:text="@string/scale" />
+
+                        <Spinner android:id="@+id/spScale" android:layout_width="0dp"
+                            android:layout_weight="1" android:layout_height="52dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_field"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="12dp">
+
+                        <TextView style="@style/T.Label" android:text="@string/dim_unit" />
+
+                        <Spinner android:id="@+id/spUnit" android:layout_width="0dp"
+                            android:layout_weight="1" android:layout_height="52dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Switch android:id="@+id/swDims" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView style="@style/T.Body" android:layout_marginStart="10dp"
+                        android:text="@string/show_dims" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:layout_marginEnd="10dp" android:src="@drawable/ic_titleblock" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView style="@style/T.Body" android:text="@string/title_block" />
+
+                    <TextView android:id="@+id/blockInfo" style="@style/T.Label" />
+                </LinearLayout>
+
+                <Switch android:id="@+id/swBlock" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView android:id="@+id/btnEditBlock" android:layout_width="38dp"
+                    android:layout_height="38dp" android:layout_marginStart="6dp"
+                    android:padding="8dp" android:src="@drawable/ic_edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:layout_marginEnd="8dp" android:src="@drawable/ic_print" />
+
+                <TextView style="@style/T.Label" android:text="@string/print_100" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/cta" style="@style/Cta" android:layout_marginTop="12dp">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:src="@drawable/ic_download" />
+                <TextView android:id="@+id/ctaLabel" style="@style/CtaText"
+                    android:text="@string/save_pdf" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/btnShare" style="@style/Cta"
+                android:layout_height="52dp" android:layout_marginTop="8dp"
+                android:background="@drawable/bg_cta_ghost">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_share" />
+                <TextView style="@style/CtaText" android:textColor="@color/accent"
+                    android:textSize="16sp" android:text="@string/share" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                    android:layout_marginEnd="6dp" android:src="@drawable/ic_check" />
+
+                <TextView style="@style/T.Label" android:text="@string/project_kept" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

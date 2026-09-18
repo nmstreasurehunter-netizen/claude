@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/part_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="18dp">
+
+            <TextView
+                style="@style/T.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/s1_title" />
+
+            <TextView
+                style="@style/T.Sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="14dp"
+                android:text="@string/s1_sub" />
+
+            <include
+                android:id="@+id/steps"
+                layout="@layout/part_steps" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/T.Label"
+                        android:text="@string/project_name" />
+
+                    <TextView
+                        android:id="@+id/projectName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/txt"
+                        android:textSize="19sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnRename"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btnCamera"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/bg_tile"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_camera" />
+
+                    <TextView
+                        style="@style/T.Body"
+                        android:text="@string/take_photo" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnImport"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/bg_tile"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_image" />
+
+                    <TextView
+                        style="@style/T.Body"
+                        android:text="@string/import_image" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/preview_sketch"
+                            android:textColor="@color/txt"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fileName"
+                            style="@style/T.Label"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/no_image" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnFull"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_zoom"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_expand" />
+                </LinearLayout>
+
+                <com.tracecroquis.ui.view.CropView
+                    android:id="@+id/cropView"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_preview" />
+
+                <TextView
+                    android:id="@+id/cropHint"
+                    style="@style/T.Sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/adjust_corners" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout android:id="@+id/toolCrop" style="@style/Tile">
+                    <ImageView style="@style/TileIcon" android:src="@drawable/ic_crop" />
+                    <TextView style="@style/TileLabel" android:text="@string/crop" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/toolRotate" style="@style/Tile">
+                    <ImageView style="@style/TileIcon" android:src="@drawable/ic_rotate" />
+                    <TextView style="@style/TileLabel" android:text="@string/rotate" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/toolDeskew" style="@style/Tile">
+                    <ImageView style="@style/TileIcon" android:src="@drawable/ic_deskew" />
+                    <TextView style="@style/TileLabel" android:text="@string/deskew" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/toolContrast" style="@style/Tile">
+                    <ImageView style="@style/TileIcon" android:src="@drawable/ic_contrast" />
+                    <TextView style="@style/TileLabel" android:text="@string/contrast" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/contrastBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:max="100"
+                android:progress="35"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_bulb" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tips_title"
+                        android:textColor="@color/txt"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/T.Sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/tips_body" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cta"
+                style="@style/Cta"
+                android:layout_marginTop="14dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_scan" />
+
+                <TextView
+                    style="@style/CtaText"
+                    android:text="@string/vectorize_cta" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    style="@style/T.Label"
+                    android:text="@string/on_device" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

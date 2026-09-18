@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/part_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="18dp">
+
+            <TextView style="@style/T.Title" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                android:text="@string/s2_title" />
+
+            <TextView android:id="@+id/subTitle" style="@style/T.Sub"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:layout_marginBottom="14dp" />
+
+            <include android:id="@+id/steps" layout="@layout/part_steps" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/preview_plan"
+                        android:textColor="@color/txt"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_ok"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/badgeIcon"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginEnd="6dp"
+                            android:src="@drawable/ic_check" />
+
+                        <TextView
+                            android:id="@+id/badgeText"
+                            style="@style/T.Label"
+                            android:textColor="@color/ok"
+                            android:text="@string/preview_ready" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnFull"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_zoom"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_expand" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:id="@+id/tabSketch" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_doc" />
+                        <TextView style="@style/TileLabel" android:text="@string/tab_sketch" />
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/tabVector" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_vector" />
+                        <TextView style="@style/TileLabel" android:text="@string/tab_vector" />
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/tabOverlay" style="@style/Tile">
+                        <ImageView style="@style/TileIcon" android:src="@drawable/ic_layers" />
+                        <TextView style="@style/TileLabel" android:text="@string/tab_overlay" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.tracecroquis.ui.view.PlanView
+                    android:id="@+id/planView"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_preview" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView android:id="@+id/bgLabel" style="@style/T.Label"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp" />
+
+                    <SeekBar
+                        android:id="@+id/bgBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:progress="35" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/elements_title"
+                    android:textColor="@color/txt"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+                    <include android:id="@+id/elWalls" layout="@layout/part_check" />
+                    <include android:id="@+id/elOpenings" layout="@layout/part_check" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include android:id="@+id/elRooms" layout="@layout/part_check" />
+                    <include android:id="@+id/elDims" layout="@layout/part_check" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include android:id="@+id/elFurniture" layout="@layout/part_check" />
+                    <include android:id="@+id/elTextures" layout="@layout/part_check" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_deskew" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/keep_angles"
+                    android:textColor="@color/txt"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/swAngles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnRerun"
+                style="@style/Cta"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_cta_ghost">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_refresh" />
+
+                <TextView
+                    style="@style/CtaText"
+                    android:textColor="@color/accent"
+                    android:textSize="16sp"
+                    android:text="@string/rerun" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_ruler" />
+
+                <TextView android:id="@+id/scaleNote" style="@style/T.Label"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/scale_next_step" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/cta" style="@style/Cta" android:layout_marginTop="12dp">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:src="@drawable/ic_edit" />
+                <TextView style="@style/CtaText" android:text="@string/check_cta" />
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                    android:layout_marginEnd="6dp" android:src="@drawable/ic_phone" />
+
+                <TextView android:id="@+id/footNote" style="@style/T.Label"
+                    android:text="@string/on_device" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

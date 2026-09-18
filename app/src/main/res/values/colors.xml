@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF050C1A</color>
+    <color name="bg_elev">#FF0A1730</color>
+    <color name="card">#FF0C1B35</color>
+    <color name="card_alt">#FF102344</color>
+    <color name="stroke">#FF1C3358</color>
+    <color name="stroke_soft">#FF172B4A</color>
+    <color name="accent">#FF22D3EE</color>
+    <color name="accent_dim">#FF0E7C93</color>
+    <color name="blue">#FF1E6BFF</color>
+    <color name="blue_dark">#FF0B3FA8</color>
+    <color name="txt">#FFF2F7FF</color>
+    <color name="txt_dim">#FF9FB6D6</color>
+    <color name="txt_mute">#FF6E87AB</color>
+    <color name="ok">#FF22D39A</color>
+    <color name="warn">#FFFFC24B</color>
+    <color name="danger">#FFFF6B6B</color>
+    <color name="paper">#FFF7F4EC</color>
+    <color name="ink">#FF16305E</color>
+    <color name="transparent">#00000000</color>
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TraceCroquis</string>
+    <string name="brand_a">Trace</string>
+    <string name="brand_b">Croquis</string>
+
+    <string name="tab_projects">Projets</string>
+    <string name="tab_create">Créer</string>
+    <string name="tab_settings">Réglages</string>
+
+    <string name="step_of">ÉTAPE %1$d / 4</string>
+    <string name="steps">Étapes</string>
+    <string name="step1">Croquis</string>
+    <string name="step2">Vectorisation</string>
+    <string name="step3">Correction</string>
+    <string name="step4">Export</string>
+
+    <!-- Etape 1 -->
+    <string name="s1_title">Importer le croquis</string>
+    <string name="s1_sub">Transformez votre dessin en plan vectoriel.</string>
+    <string name="project_name">Nom du projet</string>
+    <string name="take_photo">Prendre\nune photo</string>
+    <string name="import_image">Importer\nune image</string>
+    <string name="preview_sketch">Aperçu du croquis</string>
+    <string name="adjust_corners">Ajustez les 4 coins autour de la feuille</string>
+    <string name="crop">Cadrer</string>
+    <string name="rotate">90°</string>
+    <string name="deskew">Redresser</string>
+    <string name="contrast">Contraste</string>
+    <string name="tips_title">Pour un meilleur résultat</string>
+    <string name="tips_body">Feuille à plat, traits nets, bonne lumière.\nSi possible, notez une longueur réelle.</string>
+    <string name="vectorize_cta">Vectoriser le croquis</string>
+    <string name="on_device">Traitement sur votre appareil</string>
+    <string name="no_image">Aucun croquis chargé</string>
+
+    <!-- Etape 2 -->
+    <string name="s2_title">Vectoriser le croquis</string>
+    <string name="preview_plan">Aperçu du plan</string>
+    <string name="preview_ready">Aperçu généré</string>
+    <string name="preview_running">Analyse en cours…</string>
+    <string name="tab_sketch">Croquis</string>
+    <string name="tab_vector">Vectorisé</string>
+    <string name="tab_overlay">Superposé</string>
+    <string name="layer_sketch">Croquis</string>
+    <string name="layer_vectors">Vecteurs</string>
+    <string name="background_pct">Fond : %1$d %%</string>
+    <string name="elements_title">Éléments à reconnaître</string>
+    <string name="el_walls">Murs et cloisons</string>
+    <string name="el_openings">Portes et fenêtres</string>
+    <string name="el_rooms">Noms des pièces</string>
+    <string name="el_dims">Cotes manuscrites</string>
+    <string name="el_furniture">Mobilier et symboles</string>
+    <string name="el_textures">Carrelage, terrasse, isolant</string>
+    <string name="keep_angles">Respecter les angles du croquis</string>
+    <string name="rerun">Relancer la vectorisation</string>
+    <string name="scale_next_step">Cotes et échelle à vérifier à l\'étape suivante.</string>
+    <string name="check_cta">Vérifier le plan</string>
+
+    <!-- Etape 3 -->
+    <string name="s3_title">Vérifier et corriger</string>
+    <string name="editor">Éditeur du plan</string>
+    <string name="sketch_background">Croquis en fond</string>
+    <string name="tap_to_edit">Touchez un élément pour le modifier.</string>
+    <string name="tool_select">Sélection</string>
+    <string name="tool_walls">Murs</string>
+    <string name="tool_openings">Ouvertures</string>
+    <string name="tool_dims">Cotes</string>
+    <string name="tool_texts">Textes</string>
+    <string name="tool_scale">Échelle</string>
+    <string name="plan_scale">Échelle du plan</string>
+    <string name="real_distance">Distance réelle entre A et B</string>
+    <string name="reference_ok">Référence confirmée</string>
+    <string name="reference_todo">Référence à confirmer</string>
+    <string name="modify">Modifier</string>
+    <string name="adjust_hint">Ajustez les murs, les ouvertures et les cotes.</string>
+    <string name="export_cta">Préparer l\'export</string>
+    <string name="saved">Modifications enregistrées</string>
+
+    <!-- Etape 4 -->
+    <string name="s4_title">Exporter le plan</string>
+    <string name="doc_preview">Aperçu du document</string>
+    <string name="scale_ok">Échelle calibrée</string>
+    <string name="out_format">Format de sortie</string>
+    <string name="fmt_pdf_sub">Impression</string>
+    <string name="fmt_dxf_sub">CAO</string>
+    <string name="fmt_svg_sub">Vectoriel</string>
+    <string name="layout">Mise en page</string>
+    <string name="paper">Papier</string>
+    <string name="orientation">Orientation</string>
+    <string name="scale">Échelle</string>
+    <string name="dim_unit">Unité des cotes</string>
+    <string name="show_dims">Afficher les cotes</string>
+    <string name="title_block">Cartouche</string>
+    <string name="print_100">Imprimer à 100 % pour conserver l\'échelle.</string>
+    <string name="save_pdf">Enregistrer le PDF</string>
+    <string name="share">Partager</string>
+    <string name="project_kept">Projet modifiable conservé sur cet appareil</string>
+    <string name="portrait">Portrait</string>
+    <string name="landscape">Paysage</string>
+    <string name="auto">Auto</string>
+
+    <!-- Divers -->
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete">Supprimer</string>
+    <string name="apply">Appliquer</string>
+    <string name="undo">Annuler</string>
+    <string name="redo">Rétablir</string>
+    <string name="help">Aide</string>
+    <string name="back">Retour</string>
+    <string name="fullscreen">Plein écran</string>
+    <string name="open">Ouvrir</string>
+    <string name="new_project">Nouveau projet</string>
+    <string name="no_project">Aucun projet enregistré</string>
+    <string name="settings_detection">Détection</string>
+    <string name="settings_defaults">Valeurs par défaut</string>
+    <string name="settings_about">À propos</string>
+</resources>
