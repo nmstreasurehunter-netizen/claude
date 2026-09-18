@@ -4,15 +4,22 @@ plugins {
 
 android {
     namespace 'com.tracecroquis'
-    compileSdk 33
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.tracecroquis"
         minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "0.1"
+        targetSdk 35
+        versionCode 2
+        versionName "0.1.1"
         vectorDrawables.useSupportLibrary true
+
+        // Les modeles de reconnaissance de texte sont fournis pour plusieurs
+        // architectures : on ne garde que celles des telephones reels, ce qui
+        // divise par deux la taille de l'APK.
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
+        }
     }
 
     buildTypes {
@@ -42,6 +49,13 @@ android {
         abortOnError false
         checkReleaseBuilds false
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
 }
 
 // ML Kit entraine d'anciens artefacts kotlin-stdlib-jdk7/jdk8 qui font doublon
@@ -56,16 +70,21 @@ configurations.all {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.core:core:1.10.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'com.google.android.material:material:1.12.0'
 
     // OCR facultatif (noms de pieces, surfaces, cotes manuscrites).
     // Pour compiler hors-ligne : ajouter  tracecroquis.mlkit=false  dans gradle.properties.
     // Le code n'appelle ML Kit que par reflexion : l'application compile et
     // fonctionne meme si cette dependance est absente.
     if (project.findProperty('tracecroquis.mlkit') != 'false') {
-        implementation 'com.google.mlkit:text-recognition:16.0.0'
+        implementation 'com.google.mlkit:text-recognition:16.0.1'
     }
+
+    // Test de non-regression : verifie que chaque ecran s'affiche sans erreur.
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.14.1'
+    testImplementation 'androidx.test:core:1.6.1'
 }

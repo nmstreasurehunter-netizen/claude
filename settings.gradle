@@ -1,6 +1,9 @@
 pluginManagement {
     repositories {
         google()
+        // Miroir Google de Maven Central : evite les limitations de debit
+        // de repo.maven.apache.org. Gradle bascule sur mavenCentral() si besoin.
+        maven { url 'https://maven-central.storage-download.googleapis.com/maven2/' }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -9,6 +12,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
+        // Miroir Google de Maven Central : evite les limitations de debit
+        // de repo.maven.apache.org. Gradle bascule sur mavenCentral() si besoin.
+        maven { url 'https://maven-central.storage-download.googleapis.com/maven2/' }
         mavenCentral()
     }
 }

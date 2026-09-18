@@ -1,4 +1,4 @@
-# TraceCroquis — v0.1
+# TraceCroquis — v0.1.1
 
 Application Android qui **vectorise un croquis de plan dessiné à main levée** et le
 transforme en **plan à l'échelle** avec cartouche, exportable en **PDF, DXF et SVG**
@@ -53,9 +53,14 @@ en plaçant deux points A et B sur une longueur connue.
 3. `Build → Assemble Debug` (ou `./gradlew assembleDebug`).
 4. L'APK est produit dans `app/build/outputs/apk/debug/app-debug.apk`.
 
-Configuration utilisée : AGP **8.0.2**, Gradle **8.2**, `compileSdk 33`, `minSdk 24`,
-`targetSdk 33`, Java 17, **aucun code natif**, **aucun Kotlin** (compilation plus
-rapide et plus sûre sur téléphone).
+Configuration utilisée : AGP **8.1.4**, Gradle **8.2**, `compileSdk 35`, `minSdk 24`,
+`targetSdk 35`, Java 17, **aucun code natif propre au projet**, **aucun Kotlin**
+(compilation plus rapide et plus sûre sur téléphone). L'APK ne conserve que les
+architectures `arm64-v8a` et `armeabi-v7a` : c'est ce qui divise sa taille par deux.
+
+> `targetSdk 35` est nécessaire : en dessous, Google Play Protect bloque
+> l'installation avec le message « Appli non sécurisée bloquée — conçue pour une
+> version plus ancienne d'Android ».
 
 ### Compilation hors ligne
 
@@ -112,6 +117,17 @@ Le détail du pipeline et de chaque paramètre est dans
 [`docs/VECTORISATION.md`](docs/VECTORISATION.md).
 
 ---
+
+## En cas de problème
+
+L'application enregistre les erreurs fatales dans un fichier local. Au démarrage
+suivant, un **rapport de plantage** s'affiche avec un bouton *Copier* : il contient
+le modèle de l'appareil, la version d'Android et la trace exacte de l'erreur.
+
+Un test automatique (`./gradlew testDebugUnitTest`) vérifie que les six écrans
+s'affichent sans erreur, puis vectorise un croquis de synthèse et produit les
+trois exports. C'est le filet de sécurité contre les mises en page invalides —
+c'est exactement ce type de défaut qui empêchait la v0.1 de démarrer.
 
 ## Limites connues de la v0.1
 

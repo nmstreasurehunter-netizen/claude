@@ -47,3 +47,18 @@ javac -d build $(find app/src/main/java/com/tracecroquis/core -name '*.java')
 ```
 
 Voir `docs/VECTORISATION.md` pour le détail du pipeline et des réglages.
+
+---
+
+## Correctifs de la v0.1.1
+
+| Symptôme | Cause | Correctif |
+|---|---|---|
+| « Appli non sécurisée bloquée — conçue pour une version plus ancienne d'Android » | `targetSdk 33`, en dessous du seuil exigé par Google Play Protect | `compileSdk`/`targetSdk` portés à **35**, AGP 8.1.4, AndroidX à jour |
+| L'application s'installe mais ne démarre pas | Plusieurs vues utilisaient un style (`T.Label`, `T.Body`…) qui ne fournissait ni `layout_width` ni `layout_height` → `RuntimeException` à l'inflation du premier écran | Les styles portent désormais leurs dimensions ; 104 occurrences corrigées d'un coup |
+| Interface sous les barres système sur Android 15 | `targetSdk 35` impose l'affichage bord à bord | Report des encarts système en marges intérieures (`WindowInsetsCompat`) |
+| Diagnostic impossible sans câble | — | Journal de plantage local, proposé à la copie au démarrage suivant |
+
+Vérification : `./gradlew testDebugUnitTest` — **5 tests, 0 échec** (affichage des
+six écrans, vectorisation d'un croquis de synthèse, exports PDF / SVG / DXF,
+recalibrage de l'échelle).

@@ -14,6 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.tracecroquis.R;
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
         setContentView(R.layout.activity_main);
+        applyWindowInsets();
         prefs = new Prefs(this);
         Session.get().options = prefs.options();
 
@@ -65,6 +71,28 @@ public class MainActivity extends AppCompatActivity {
             step = state.getInt("step", 1);
         }
         showTab(tab);
+        com.tracecroquis.CrashLog.showIfAny(this);
+    }
+
+    /**
+     * A partir d'Android 15, une application visant l'API 35 dessine sous les
+     * barres systeme : on reporte leurs dimensions en marges interieures.
+     */
+    private void applyWindowInsets() {
+        final View root = findViewById(R.id.root);
+        if (root == null) return;
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        new androidx.core.view.WindowInsetsControllerCompat(getWindow(), root)
+                .setAppearanceLightStatusBars(false);
+        ViewCompat.setOnApplyWindowInsetsListener(root, new OnApplyWindowInsetsListener() {
+            @Override public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+                Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars()
+                        | WindowInsetsCompat.Type.displayCutout());
+                v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+                return insets;
+            }
+        });
+        ViewCompat.requestApplyInsets(root);
     }
 
     @Override
