@@ -13,7 +13,7 @@ public final class DimensionDetector {
     private DimensionDetector() { }
 
     public static void detect(Plan plan, List<Seg> segs, VectorOptions o, double minDim) {
-        double minLen = 0.07 * minDim;
+        double minLen = 0.12 * minDim;
         double tickMax = 0.035 * minDim;
         double nearTick = 0.03 * minDim;
         double textDist = 0.075 * minDim;
@@ -34,7 +34,7 @@ public final class DimensionDetector {
                     double d = Math.min(G.dist(t.x1, t.y1, ex, ey), G.dist(t.x2, t.y2, ex, ey));
                     if (d > nearTick) continue;
                     double da = Math.toDegrees(G.angleDiff180(t.ang(), s.ang()));
-                    if (da > 8 && da < 75) { arrows++; ticks.add(t); break; }
+                    if (da > 10 && da < 55) { arrows++; ticks.add(t); break; }
                     if (da >= 75) { ticks.add(t); }   // trait d'attache perpendiculaire
                 }
             }

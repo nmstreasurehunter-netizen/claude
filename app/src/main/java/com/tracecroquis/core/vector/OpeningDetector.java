@@ -26,6 +26,14 @@ public final class OpeningDetector {
         double maxGap = 0.25 * minDim;
         int[] deg = WallBuilder.degrees(plan);
         int n = plan.nodes.size();
+        // Murs incidents a chaque noeud : evite de balayer tout le plan par paire.
+        List<List<Integer>> inc = new ArrayList<>();
+        for (int i = 0; i < n; i++) inc.add(new ArrayList<Integer>());
+        for (int i = 0; i < plan.walls.size(); i++) {
+            Plan.Wall w = plan.walls.get(i);
+            if (w.a < n) inc.get(w.a).add(Integer.valueOf(i));
+            if (w.b < n) inc.get(w.b).add(Integer.valueOf(i));
+        }
         List<double[]> cands = new ArrayList<>();   // gap, i, j, thickness
         for (int i = 0; i < n; i++) {
             if (deg[i] > 2) continue;
@@ -35,7 +43,7 @@ public final class OpeningDetector {
                 double gap = G.dist(a.x, a.y, b.x, b.y);
                 if (gap < minGap || gap > maxGap) continue;
                 double gapAng = Math.atan2(b.y - a.y, b.x - a.x);
-                double thick = alignment(plan, i, j, gapAng, minDim);
+                double thick = alignment(plan, inc, i, j, gapAng, minDim);
                 if (thick <= 0) continue;
                 // Un percement peut contenir un symbole de menuiserie : on ne rejette
                 // que si l'axe du mur est franchement plein sur toute la portee.
@@ -69,17 +77,16 @@ public final class OpeningDetector {
      * Verifie qu'un mur arrivant en i et un mur arrivant en j sont tous deux
      * alignes sur la direction du percement. Renvoie l'epaisseur retenue, ou 0.
      */
-    private static double alignment(Plan plan, int i, int j, double gapAng, double minDim) {
+    private static double alignment(Plan plan, List<List<Integer>> inc, int i, int j,
+                                    double gapAng, double minDim) {
         double tol = Math.toRadians(22);
         double best = 0;
-        for (int wi = 0; wi < plan.walls.size(); wi++) {
+        for (int wi : inc.get(i)) {
             Plan.Wall w1 = plan.walls.get(wi);
-            if (w1.a != i && w1.b != i) continue;
             if (Math.abs(G.angleDelta(dirTowards(plan, w1, i), gapAng)) > tol) continue;
-            for (int wj = 0; wj < plan.walls.size(); wj++) {
+            for (int wj : inc.get(j)) {
                 if (wj == wi) continue;
                 Plan.Wall w2 = plan.walls.get(wj);
-                if (w2.a != j && w2.b != j) continue;
                 if (Math.abs(G.angleDelta(dirTowards(plan, w2, j), gapAng + Math.PI)) > tol) continue;
                 Plan.Node a = plan.nodes.get(i), b = plan.nodes.get(j);
                 Plan.Node f1 = plan.nodes.get(w1.a == i ? w1.b : w1.a);

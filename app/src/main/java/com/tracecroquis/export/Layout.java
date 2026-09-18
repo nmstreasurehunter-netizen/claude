@@ -69,9 +69,8 @@ public class Layout {
 
         for (int pi = 0; pi < PAPERS.length; pi++) {
             if (!forcePaper.isEmpty() && !PAPERS[pi].equalsIgnoreCase(forcePaper)) continue;
-            for (int rot = 0; rot < 2; rot++) {
-                boolean land = rot == 0 ? (autoOrientation ? (wM >= hM) : forceLandscape)
-                        : (autoOrientation ? (wM < hM) : !forceLandscape);
+            for (int rot = 0; rot < (autoOrientation ? 2 : 1); rot++) {
+                boolean land = autoOrientation ? (rot == 0 ? (wM >= hM) : (wM < hM)) : forceLandscape;
                 Layout l = new Layout();
                 l.paper = PAPERS[pi];
                 l.landscape = land;

@@ -140,7 +140,6 @@ public class Step3Fragment extends StepFragment implements PlanView.Listener {
                 setSelected(toolDims, which == PlanView.TOOL_DIM);
                 setSelected(toolTexts, which == PlanView.TOOL_TEXT);
                 setSelected(toolScale, which == PlanView.TOOL_SCALE);
-                scalePanel.setVisibility(which == PlanView.TOOL_SCALE ? View.VISIBLE : View.VISIBLE);
                 hint.setText(hintFor(which));
             }
         });

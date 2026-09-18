@@ -102,6 +102,7 @@ public class Step1Fragment extends StepFragment {
     }
 
     private void refresh() {
+        if (crop == null) return;
         Session s = session();
         if (s.source != null && !s.source.isRecycled()) {
             crop.setBitmap(s.source);
@@ -126,6 +127,7 @@ public class Step1Fragment extends StepFragment {
         if (s.source == null) return;
         s.source = com.tracecroquis.util.Img.rotate(s.source, 90);
         s.corners = null;
+        s.sketch = null;          // sera reconstruit lors de la vectorisation
         crop.setBitmap(s.source);
         updateTools();
     }

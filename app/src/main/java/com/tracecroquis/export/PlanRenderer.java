@@ -15,7 +15,6 @@ import com.tracecroquis.core.model.Enums.WallType;
 import com.tracecroquis.core.model.Plan;
 import com.tracecroquis.util.Fmt;
 
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -458,9 +457,5 @@ public final class PlanRenderer {
     public static int dim(int color, float f) {
         int r = (int) (Color.red(color) * f), g = (int) (Color.green(color) * f), b = (int) (Color.blue(color) * f);
         return Color.argb(Color.alpha(color), Math.min(255, r), Math.min(255, g), Math.min(255, b));
-    }
-
-    public static List<double[]> noop() {
-        return null;
     }
 }
